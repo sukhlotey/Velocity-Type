@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background-image: url("https://images.pexels.com/photos/22504510/pexels-photo-22504510/free-photo-of-a-white-texture-with-irregular-patterns.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+}
+.textarea-type {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  resize: none;
+  font-size: larger;
+  outline: none;
+  padding: 5px;
+  color: rgba(0, 0, 0, 0.727);
+  margin-top: 5px;
+  border: none;
+}
+
+.typing-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.paragraph-display {
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+  margin-top: 5px;
+  font-size: x-large;
+}
+.error-message {
+  color: red;
+}
+.timer {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .typing-container {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
