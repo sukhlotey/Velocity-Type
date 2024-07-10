@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./result.css";
+
 const Result = () => {
   const location = useLocation();
   const { textArea, paragraph } = location.state;
@@ -9,20 +10,31 @@ const Result = () => {
   const replayHandle = () => {
     navigate("/typing");
   };
-  const totalCharacters = textArea.length;
-  const mistakes = textArea.split("").reduce((acc, char, idx) => {
-    return char !== paragraph[idx] ? acc + 1 : acc;
-  }, 0);
-  const accuracy = ((totalCharacters - mistakes) / totalCharacters) * 100;
+
+  const countWords = (text) => {
+    return text.trim().split(/\s+/).length;
+  };
+
+  const totalWords = countWords(textArea);
+  const paragraphWords = paragraph.trim().split(/\s+/);
+
+  const mistakes = textArea
+    .trim()
+    .split(/\s+/)
+    .reduce((acc, word, idx) => {
+      return word !== paragraphWords[idx] ? acc + 1 : acc;
+    }, 0);
+
+  const accuracy = ((totalWords - mistakes) / totalWords) * 100;
 
   return (
     <div className="whole">
       <h2 className="result-head">Results</h2>
       <div className="result-container">
         <p>
-          Characters
+          Words
           <br />
-          <span className="res-word">{totalCharacters}</span>
+          <span className="res-word">{totalWords}</span>
         </p>
         <p>
           Mistakes <br /> <span className="res-word">{mistakes}</span>
